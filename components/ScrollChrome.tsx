@@ -12,7 +12,7 @@ export function Header() {
     <header className={`hdr${scrolled ? " is-scrolled" : ""}`}>
       <div className="wrap hdr-inner">
         <a href="#topo" className="wordmark" aria-label="nexo.menu, voltar ao topo">
-          <Logo height={46} />
+          <Logo height={46} priority />
         </a>
         <div className="hdr-right">
           <nav className="hdr-links" aria-label="Seções">
@@ -21,7 +21,6 @@ export function Header() {
             <a className="navlnk" href="#duvidas">Dúvidas</a>
           </nav>
           <a className="btn btn-sm" href="#contato">
-            <ChatIcon size={18} />
             Entre em contato
           </a>
         </div>
@@ -36,7 +35,7 @@ export function Fab() {
   return (
     <div className="fabwrap">
       <a className="btn btn-fab" href={WA}>
-        <ChatIcon size={20} />
+        <ChatIcon size={20} />  
         Falar
       </a>
     </div>
@@ -50,9 +49,11 @@ function useScrollState() {
     const onScroll = () => {
       const scrolled = window.scrollY > 4;
       let fab = false;
-      const hero = document.getElementById("hero-cta");
+      // Aparece depois que o texto do hero sai da tela (o hero não tem mais botão próprio).
+      const hero = document.querySelector(".hs-copy");
       if (hero) fab = hero.getBoundingClientRect().bottom < 0;
-      const fin = document.getElementById("final-cta");
+      // Some perto do CTA final; sem o botão do CTA final, some quando o rodapé entra na tela.
+      const fin = document.getElementById("final-cta") ?? document.querySelector(".footer");
       if (fab && fin && fin.getBoundingClientRect().top < window.innerHeight) fab = false;
       setState((s) => (s.scrolled === scrolled && s.fab === fab ? s : { scrolled, fab }));
     };

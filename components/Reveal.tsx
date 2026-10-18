@@ -9,6 +9,7 @@ export function Reveal() {
     let sr: { destroy: () => void } | undefined;
     import("scrollreveal").then(({ default: ScrollReveal }) => {
       const instance = ScrollReveal();
+      // O hero (HeroScrub) não usa .sec, então fica de fora sozinho.
       instance.reveal(".sec > .wrap, .footer > .wrap", {
         // Começa assim que a seção aponta na tela e desliza devagar, sem tranco.
         delay: 100,
