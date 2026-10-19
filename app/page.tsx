@@ -17,7 +17,7 @@ const INCLUDES = [
   { Icon: TagIcon, t: "Tag em cada mesa", d: "NFC e QR Code em acrílico." },
   { Icon: BellIcon, t: "Garçom e conta pelo celular", d: "Direto do celular do cliente." },
   { Icon: PanelIcon, t: "Painel do salão", d: "Chamados em tempo real." },
-  { Icon: RefreshIcon, t: "Atualizações incluídas", d: "Mudou o preço? Manda no WhatsApp." },
+  { Icon: RefreshIcon, t: "Atualizações incluídas", d: "Mudou o preço? Entre em contato." },
 ];
 
 const PILOT = ["Setup completo", "Atualizações incluídas", "Acompanhamento no primeiro mês"];
@@ -66,7 +66,7 @@ export default function Home() {
         <section className="sec sec-light">
           <div className="wrap">
             <div className="pilot">
-              <h2 className="serif h2 tight pilot-title">Seja o primeiro restaurante da nexo.menu em Petrolina.</h2>
+              <h2 className="serif h2 tight pilot-title">Seja o primeiro restaurante da nexo em Petrolina.</h2>
               <p className="body pilot-sub">Preço de lançamento em troca do seu depoimento.</p>
               <ul className="pilot-list">
                 {PILOT.map((t) => (

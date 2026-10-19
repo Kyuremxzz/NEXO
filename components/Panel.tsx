@@ -18,10 +18,10 @@ export function Panel() {
     <section className="sec sec-roomy sec-brown pn">
       <div className="wrap pn-grid">
         <div className="pn-copy">
-          <span className="chip chip-dark">Painel do salão</span>
+          <span className="chip chip-dark">Painel</span>
           <h2 className="serif h2 tight">Cada chamado aparece na hora.</h2>
           <p className="body muted measure-md">
-            No celular ou tablet do salão: qual mesa chamou e o que ela quer.
+            No celular ou tablet: qual mesa chamou e o que ela quer.
           </p>
           <ul className="pn-facts">
             {FACTS.map(({ Icon, t }) => (
