@@ -1,12 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ChatIcon } from "./icons";
 import { Logo } from "./Logo";
 
 
 export function Header() {
-  const scrolled = useScrollState().scrolled;
+  const scrolled = useScrollState();
   return (
     <header className={`hdr${scrolled ? " is-scrolled" : ""}`}>
       <div className="wrap hdr-inner">
@@ -30,24 +29,18 @@ export function Header() {
 
 
 function useScrollState() {
-  const [state, setState] = useState({ scrolled: false, fab: false });
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
-      const scrolled = window.scrollY > 4;
-      let fab = false;
-      // Aparece depois que o texto do hero sai da tela (o hero não tem mais botão próprio).
-      const hero = document.querySelector(".hs-copy");
-      if (hero) fab = hero.getBoundingClientRect().bottom < 0;
-      // Some perto do CTA final; sem o botão do CTA final, some quando o rodapé entra na tela.
-      const fin = document.getElementById("final-cta") ?? document.querySelector(".footer");
-      if (fab && fin && fin.getBoundingClientRect().top < window.innerHeight) fab = false;
-      setState((s) => (s.scrolled === scrolled && s.fab === fab ? s : { scrolled, fab }));
+      setScrolled(window.scrollY > 4);
     };
+
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
+
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  return state;
+  return scrolled;
 }

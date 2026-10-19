@@ -1,4 +1,4 @@
-import { Header, Fab } from "@/components/ScrollChrome";
+import { Header } from "@/components/ScrollChrome";
 import { FaqSection } from "@/components/FaqSection";
 import { ContactForm } from "@/components/ContactForm";
 import { Reveal } from "@/components/Reveal";
@@ -10,7 +10,6 @@ import {
   BellIcon, BookIcon, ChatIcon, CheckIcon, PanelIcon, PinIcon,
   RefreshIcon, TagIcon, VideoIcon,
 } from "@/components/icons";
-import { WA, WA_PILOTO } from "@/lib/config";
 
 const INCLUDES = [
   { Icon: BookIcon, t: "Cardápio com a sua marca", d: "Cores, logo e fotos da casa." },
@@ -106,7 +105,6 @@ export default function Home() {
 
       <Footer />
 
-      <Fab />
       <Reveal />
     </div>
   );
