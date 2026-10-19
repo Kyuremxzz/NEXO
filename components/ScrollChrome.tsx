@@ -3,9 +3,8 @@
 import { useEffect, useState } from "react";
 import { ChatIcon } from "./icons";
 import { Logo } from "./Logo";
-import { WA } from "@/lib/config";
 
-/** Sticky header + floating WhatsApp button (mobile), both driven by scroll. */
+
 export function Header() {
   const scrolled = useScrollState().scrolled;
   return (
@@ -29,18 +28,6 @@ export function Header() {
   );
 }
 
-export function Fab() {
-  const { fab } = useScrollState();
-  if (!fab) return null;
-  return (
-    <div className="fabwrap">
-      <a className="btn btn-fab" href={WA}>
-        <ChatIcon size={20} />  
-        Falar
-      </a>
-    </div>
-  );
-}
 
 function useScrollState() {
   const [state, setState] = useState({ scrolled: false, fab: false });

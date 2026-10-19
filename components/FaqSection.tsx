@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { ChatIcon } from "@/components/icons";
-import { WA } from "@/lib/config";
 
 const FAQ = [
   { q: "O cliente precisa baixar algum aplicativo?", a: "Não. A página abre direto no navegador, pelo NFC ou pelo QR Code." },
@@ -12,7 +11,7 @@ const FAQ = [
   { q: "Alguém pode trocar o link da tag?", a: "Não. A tag é gravada com um link da Nexo e travada contra regravação." },
 ];
 
-/** Seção "Dúvidas": título fixo + atalho pro WhatsApp à esquerda, perguntas em cards à direita. */
+
 export function FaqSection() {
   const [open, setOpen] = useState(0);
 
